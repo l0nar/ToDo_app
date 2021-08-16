@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Do Hyeon";
+}
+
+body {
+  background-color: rgb(232, 233, 255);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.wrap {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1024px;
+  height: 100vh;
+}
+
+.wrap_header {
+  position: relative;
+  font-size: 20px;
+  width: 720px;
+  height: 80px;
+  margin: 20px auto;
+  box-shadow: 0 1px 10px gray;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+form {
+  padding-top: 15px;
+  margin-left: 30px;
+  margin-bottom: 60px;
+}
+
+.todo_inp input,
+.todo_item_inp,
+.filter_inp {
+  padding-left: 10px;
+  padding-top: 2px;
+  width: 400px;
+  font-size: 20px;
+  border: 1px black solid;
+  border-radius: 5px;
+}
+.todo_inp input:focus {
+  outline: none;
+}
+.inp_label {
+  position: relative;
+  top: 1px;
+  font-size: 22px;
+}
+.todo_inp button {
+  border: 1px black solid;
+  border-radius: 5px;
+  position: absolute;
+  top: 16px;
+  right: 55px;
+  height: 28px;
+  width: 80px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.todo_inp button:hover {
+  color: green;
+  background-color: white;
+}
+
+.wrap_priority {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.wrap_priority input {
+  position: relative;
+  top: 1px;
+  margin-left: 10px;
+  width: 20px;
+}
+.wrap_priority span {
+  font-size: 14px;
+}
+
+.prior_lab {
+  font-size: 16px;
+}
+
+#line {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 720px;
+  height: 1px;
+  background-color: transparent;
+  box-shadow: 0 3px 5px black;
+}
+
+.todo_item_wrap {
+  position: relative;
+  box-sizing: border-box;
+  width: 720px;
+  margin: 0 auto;
+  box-shadow: 0 1px 10px grey;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 10px;
+  padding-left: 40px;
+}
+.todo_item {
+  display: flex;
+  justify-content: space-between;
+}
+.todo_item h3 {
+  float: left;
+}
+
+.todo_item_btn {
+  font-size: 18px;
+  width: 60px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 50px;
+}
+
+.todo_item_btn i {
+  color: #333;
+  cursor: pointer;
+}
+.fa-check,
+.fa-ban {
+  position: relative;
+  bottom: 4px;
+  margin-left: 20px;
+  font-size: 18px;
+  color: green;
+  cursor: pointer;
+}
+.fa-ban {
+  color: rgb(211, 5, 5);
+}
+
+.todo_item_inp {
+  position: relative;
+  top: -4px;
+}
+
+.filter_wrap {
+  position: relative;
+  font-size: 20px;
+  width: 720px;
+  height: 50px;
+  margin: 0px auto;
+  box-shadow: 0 1px 10px gray;
+  border-radius: 10px;
+  margin-bottom: 45px;
+}
+.filter_wrap div {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: 10px;
+  width: 442px;
+  margin: 0 auto;
+}
+#btn_delete_selected_items {
+  position: absolute;
+  top: 14px;
+  right: 30px;
+  font-size: 14px;
+}
+#btn_clear_filter_input {
+  position: absolute;
+  top: 14px;
+  right: 140px;
+  font-size: 20px;
+}
+#btn_sort {
+  position: absolute;
+  top: 12px;
+  left: 50px;
+  font-size: 16px;
+  padding: 2px 8px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.todo_item_check {
+  position: absolute;
+  top: 17px;
+  right: 20px;
+}
