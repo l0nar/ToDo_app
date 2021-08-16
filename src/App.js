@@ -120,17 +120,7 @@ class App extends Component {
     });
   };
 
-  // добавить через map______________________________
-
   setEditedTask = (value, id, index) => {
-    // this.setState({
-    //   todos: [
-    //     ...this.state.todos.slice(0,index),
-    //     {...this.state.todos[index], task: value},
-    //     ...this.state.todos.slice(index + 1)
-    //   ]
-    // })
-
     this.setState({
       todos: this.state.todos.map((item) => {
         if (item.id === id) {
@@ -161,16 +151,6 @@ class App extends Component {
     );
 
     this.setState({ sortDirection: configItem.next });
-
-    //   if (this.state.sortDirection === null){
-    //     this.setState({sortDirection: SORT_ORDER.asc})
-
-    //   } else if (this.state.sortDirection === SORT_ORDER.asc){
-    //     this.setState({sortDirection: SORT_ORDER.desc})
-
-    //   } else if (this.state.sortDirection === SORT_ORDER.desc){
-    //     this.setState({sortDirection: SORT_ORDER.asc})
-    // }
   };
 
   render() {
