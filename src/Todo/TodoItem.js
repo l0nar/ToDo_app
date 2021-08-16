@@ -5,12 +5,14 @@ class TodoItem extends Component {
     super(props);
     this.state = {
       localTask: "",
-      checkboxState: false,
+      // checkboxState: false,
     };
   }
 
-  setItemStyle = () => {
-    if (this.state.checkboxState) {
+  getItemStyle = () => {
+    const { todo } = this.props
+
+    if (todo.isSelected) {
       return {
         transition: ".5s",
         boxShadow: "0 0 10px green",
@@ -50,21 +52,25 @@ class TodoItem extends Component {
     this.setState({ localTask: e.target.value });
   };
 
-  handleSetSelectedTodo = (e) => {
-    this.setState({ checkboxState: e.target.checked });
+  handleSetSelectedTodo = () => {
+    const { setSelectedItem, todo } = this.props
+
+    setSelectedItem(!todo.isSelected, todo.id)
+
+    // this.setState({ checkboxState: e.target.checked });
   };
 
-  componentDidUpdate = (prevProps, prevState) => {
-    if (this.state.checkboxState !== prevState.checkboxState) {
-      this.props.setSelectedItem(this.state.checkboxState, this.props.todo.id);
-    }
-  };
+  // componentDidUpdate = (prevProps, prevState) => {
+  //   if (this.state.checkboxState !== prevState.checkboxState) {
+  //     this.props.setSelectedItem(this.state.checkboxState, this.props.todo.id);
+  //   }
+  // };
 
   render() {
     const { todo, num } = this.props;
 
     return (
-      <div className="todo_item_wrap" style={this.setItemStyle()}>
+      <div className="todo_item_wrap" style={this.getItemStyle()}>
         <div className="todo_item">
           {this.state.isEdit ? (
             <div>
