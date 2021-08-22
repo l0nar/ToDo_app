@@ -10,7 +10,7 @@ class TodoItem extends Component {
   }
 
   getItemStyle = () => {
-    const { todo } = this.props
+    const { todo } = this.props;
 
     if (todo.isSelected) {
       return {
@@ -53,18 +53,10 @@ class TodoItem extends Component {
   };
 
   handleSetSelectedTodo = () => {
-    const { setSelectedItem, todo } = this.props
+    const { setSelectedItem, todo } = this.props;
 
-    setSelectedItem(!todo.isSelected, todo.id)
-
-    // this.setState({ checkboxState: e.target.checked });
+    setSelectedItem(!todo.isSelected, todo.id);
   };
-
-  // componentDidUpdate = (prevProps, prevState) => {
-  //   if (this.state.checkboxState !== prevState.checkboxState) {
-  //     this.props.setSelectedItem(this.state.checkboxState, this.props.todo.id);
-  //   }
-  // };
 
   render() {
     const { todo, num } = this.props;

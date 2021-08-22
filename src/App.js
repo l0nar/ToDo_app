@@ -16,13 +16,8 @@ class App extends Component {
       todos: [],
       filterInput: "",
       sortDirection: null,
-      // selectedTodos: false,
     };
   }
-
-  // setSelectedTodos = (value) => {
-  //   this.setState({ selectedTodos: value });
-  // };
 
   getShownList = () => {
     let shownTodos = this.state.todos;
@@ -105,18 +100,18 @@ class App extends Component {
 
   setSelectedItem = (value, id) => {
     const newTodos = this.state.todos.map((el) => {
-          if (el.id === id) {
-            return {
-              ...el,
-              isSelected: value,
-            }
-          }
+      if (el.id === id) {
+        return {
+          ...el,
+          isSelected: value,
+        };
+      }
 
-          return el;
-        })
+      return el;
+    });
 
     this.setState({
-      todos: newTodos
+      todos: newTodos,
     });
   };
 
@@ -160,7 +155,9 @@ class App extends Component {
   };
 
   render() {
-    const isAnyTodoSelected = this.state.todos.some(({ isSelected }) => isSelected)
+    const isAnyTodoSelected = this.state.todos.some(
+      ({ isSelected }) => isSelected
+    );
 
     return (
       <div className="wrap">
