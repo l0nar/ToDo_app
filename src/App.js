@@ -16,13 +16,13 @@ class App extends Component {
       todos: [],
       filterInput: "",
       sortDirection: null,
-      selectedTodos: false,
+      // selectedTodos: false,
     };
   }
 
-  setSelectedTodos = (value) => {
-    this.setState({ selectedTodos: value });
-  };
+  // setSelectedTodos = (value) => {
+  //   this.setState({ selectedTodos: value });
+  // };
 
   getShownList = () => {
     let shownTodos = this.state.todos;
@@ -96,21 +96,27 @@ class App extends Component {
     });
   };
 
-  componentDidUpdate = (prevProps, prevState) => {
-    if (this.state.todos !== prevState.todos) {
-      const arr = [...this.state.todos].map((el) => el.isSelected);
-      this.setState({ selectedTodos: arr.includes(true) });
-    }
-  };
+  // componentDidUpdate = (prevProps, prevState) => {
+  //   if (this.state.todos !== prevState.todos) {
+  //     const arr = [...this.state.todos].map((el) => el.isSelected);
+  //     this.setState({ selectedTodos: arr.includes(true) });
+  //   }
+  // };
 
   setSelectedItem = (value, id) => {
+    const newTodos = this.state.todos.map((el) => {
+          if (el.id === id) {
+            return {
+              ...el,
+              isSelected: value,
+            }
+          }
+
+          return el;
+        })
+
     this.setState({
-      todos: this.state.todos.map((el) => {
-        if (el.id === id) {
-          el.isSelected = value;
-        }
-        return el;
-      }),
+      todos: newTodos
     });
   };
 
@@ -154,19 +160,19 @@ class App extends Component {
   };
 
   render() {
+    const isAnyTodoSelected = this.state.todos.some(({ isSelected }) => isSelected)
+
     return (
       <div className="wrap">
         <Header handleAddTodo={this.handleAddTodo} />
-
         <Filter
           setSort={this.setSort}
           filterInput={this.state.filterInput}
           setFilterInput={this.setFilterInput}
           clearFilterInput={this.clearFilterInput}
-          selectedTodos={this.state.selectedTodos}
+          selectedTodos={isAnyTodoSelected}
           deleteSelectedItems={this.deleteSelectedItems}
         />
-
         {this.getShownList().map((item, i) => {
           return (
             <TodoItem
